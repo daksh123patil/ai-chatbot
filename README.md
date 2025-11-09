@@ -1,6 +1,6 @@
 <a href="https://chat.vercel.ai/">
-  <img Funchat.js 14 and App Router-ready AI chatbot." src="app/(chat)/opengraph-image.png">
-  <h1 align="center">Chat SDK</h1>
+  <img Funchat 14 and App Router-ready AI chatbot." src="app/(chat)/opengraph-image.png">
+  <h1 align="center">Funchat</h1>
 </a>
 
 <p align="center">
