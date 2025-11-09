@@ -6,81 +6,64 @@
 <title>FunChat</title>
 
 <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
         background: #111;
         font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         flex-direction: column;
         color: #00eaff;
     }
-    h1 {
-        margin-bottom: 15px;
-        font-size: 40px;
-    }
+    h1 { margin-bottom: 15px; }
     .chat-container {
         width: 350px;
         background: #181818;
         border-radius: 12px;
         padding: 15px;
-        border: 1px solid #333;
     }
     #chat-box {
-        height: 350px;
-        overflow-y: auto;
+        height: 300px;
         background: #1e1e1e;
         border-radius: 8px;
         padding: 10px;
+        overflow-y: auto;
         color: #fff;
     }
     .message {
-        margin: 8px 0;
-        padding: 10px;
+        margin: 6px 0;
+        padding: 8px;
         border-radius: 6px;
-        max-width: 80%;
         font-size: 14px;
+        max-width: 80%;
     }
-    .user {
-        background: #007bff;
-        margin-left: auto;
-        color: #fff;
-    }
-    .bot {
-        background: #333;
-        color: #00eaff;
-    }
-    .input-area {
-        display: flex;
-        margin-top: 10px;
-    }
+    .user { background: #007bff; margin-left: auto; color: #fff; }
+    .bot { background: #333; color: #00eaff; }
+    .input-area { display: flex; margin-top: 10px; }
     input {
         flex: 1;
         padding: 10px;
-        border: none;
         background: #222;
-        color: #fff;
+        border: none;
+        color: white;
         border-radius: 6px 0 0 6px;
-        outline: none;
     }
     button {
-        padding: 10px 20px;
-        border: none;
+        padding: 10px 15px;
         background: #00eaff;
-        color: #000;
-        cursor: pointer;
-        border-radius: 0 6px 6px 0;
+        border: none;
         font-weight: bold;
+        cursor: pointer;
+        color: #000;
+        border-radius: 0 6px 6px 0;
     }
 </style>
 </head>
+
 <body>
-
 <h1>FunChat</h1>
-
 <div class="chat-container">
     <div id="chat-box"></div>
 
@@ -92,34 +75,34 @@
 
 <script>
 function sendMessage() {
+    const box = document.getElementById("chat-box");
     const input = document.getElementById("user-input");
-    const message = input.value.trim();
-    if (!message) return;
+    const msg = input.value.trim();
+    if (!msg) return;
 
-    showMessage(message, "user");
+    addMessage(msg, "user");
     input.value = "";
-    
+
     setTimeout(() => {
-        showMessage(getReply(message.toLowerCase()), "bot");
+        addMessage(getReply(msg.toLowerCase()), "bot");
     }, 500);
 }
 
-function showMessage(text, sender) {
+function addMessage(text, sender) {
     const box = document.getElementById("chat-box");
-    const msg = document.createElement("div");
-    msg.className = "message " + sender;
-    msg.textContent = text;
-    box.appendChild(msg);
+    const div = document.createElement("div");
+    div.className = "message " + sender;
+    div.innerText = text;
+    box.appendChild(div);
     box.scrollTop = box.scrollHeight;
 }
 
 function getReply(text) {
-    if (text.includes("hi") || text.includes("hello")) return "Hello! 👋";
-    if (text.includes("name")) return "I am FunChat Bot 🤖";
-    if (text.includes("bye")) return "Bye! 👋";
-    return "I am still learning 😄";
+    if (text.includes("hello") || text.includes("hi")) return "Hey! 🤖";
+    if (text.includes("name")) return "I am FunChat Bot!";
+    if (text.includes("bye")) return "Bye 👋";
+    return "Still learning 😄";
 }
 </script>
-
 </body>
 </html>
