@@ -6,7 +6,7 @@ settings:
 
 importers:
 
-  .:
+  .: 
     dependencies:
       '@ai-sdk/gateway':
         specifier: ^1.0.15
