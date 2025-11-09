@@ -4,7 +4,7 @@
 </a>
 
 <p align="center">
-    Chat SDK is a free, open-source template built with Next.js and the AI SDK that helps you quickly build powerful chatbot applications.
+    This is Funchat Built by Daksh Patil
 </p>
 
 
